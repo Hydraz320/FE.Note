@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>触发storage事件的标签页</title>
+</head>
+<body>
+	<input type="text" placeholder="input date to save">  
+	<button>save</button>  
+	<script>  
+		(function(D){  
+			var val = D.getElementsByTagName("input")[0],  
+			btn = D.getElementsByTagName("button")[0];  
+			btn.onclick = function(){  
+				var value = val.value;  
+				if(!value) return;  
+				localStorage.setItem("key", val.value);  
+			};  
+			window.addEventListener("storage", function(e){  
+				console.log(e);  
+			}, false);  
+		})(document);  
+
+	</script>
+</body>
+</html>

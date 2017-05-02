@@ -1,0 +1,31 @@
+body {
+	background-color: #f6f6f6;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.waterfall {
+	column-count: 3;
+	column-width: 14em;
+	column-gap: 1em;
+}
+
+.pin {
+	padding: 1em;
+	margin: 0 0.125em 1em;
+	/* 避免在元素内部断行并产生新列 */
+	-moz-page-break-inside: avoid;
+	-webkit-column-break-inside: avoid;
+	break-inside: avoid;
+	background: white;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+}
+.pin img {
+	width: 100%;
+	padding-bottom: 1em;
+	margin-bottom: 0.5em;
+	border-bottom: 1px solid #cccccc;
+}

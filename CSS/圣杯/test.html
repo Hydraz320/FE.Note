@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.HolyGrail {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+
+		header,
+		footer {
+			background: red;
+			flex: 1;
+		}
+
+		.body {
+			display: flex;
+			flex: 1;
+		}
+
+		.content {
+			background: blue;
+			flex: 1;
+		}
+
+		.nav, .ads {
+			background: green;
+			/* 两个边栏的宽度设为12em */
+			flex: 0 0 12em;
+		}
+
+		.nav {
+			background: yellow;
+			/* 靠order来调整顺序 导航放到最左边 */
+			order: -1;
+		}
+
+		@media (max-width: 768px) {
+			.body {
+				flex-direction: column;
+				flex: 1;
+			}
+			.nav,
+			.ads,
+			.content {
+				flex: auto;
+			}
+		}
+	</style>
+</head>
+<body class="HolyGrail">
+	<header>...</header>
+	<div class="body">
+		<main class="content">...</main>
+		<nav class="nav">...</nav>
+		<aside class="ads">...</aside>
+	</div>
+	<footer>...</footer>
+</body>
+</html>

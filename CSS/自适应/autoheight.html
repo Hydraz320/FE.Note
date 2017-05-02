@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>高度自适应</title>
+	<style>
+		html,
+		body { 
+			height: 100%; 
+			padding: 0; 
+			margin: 0; 
+		}
+		.outer { 
+			height: 100%; 
+			padding: 100px 0 0; 
+			box-sizing: border-box ; 
+		}
+		.A { 
+			height: 100px; 
+			margin: -100px 0 0; 
+			background: #BBE8F2; 
+		}
+		.B { 
+			height: 100%; 
+			background: #D9C666; 
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="A"></div>
+		<div class="B"></div>
+	</div>
+</body>
+</html>

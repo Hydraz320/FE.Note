@@ -1,0 +1,68 @@
+body{
+	background-color: #ffffff;
+}
+.ball-box{
+	height: 300px;
+	width: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+}
+
+
+.ball{
+	height: 100%;
+	/* 规定如何在 3D 空间中呈现被嵌套的元素 */
+	transform-style: preserve-3d;
+	animation: mymove 10s infinite ease-in-out alternate;
+}
+.ball > div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: solid 2px #ffffff;
+	border-radius: 100%;
+}
+
+@-webkit-keyframes mymove {
+	0% {
+		transform: rotateX(0deg) rotateY(0deg);
+	}
+	100% {
+		transform: rotateX(360deg) rotateY(360deg);
+	}
+}
+
+
+.line-1{
+	transform: rotateY(0deg);
+	background-color: blueviolet;
+}
+.line-2{
+	transform: rotateY(36deg);
+	background-color:red;
+}
+.line-3{
+	transform: rotateY(72deg);
+	background-color: orangered;
+}
+.line-4{
+	transform: rotateY(118deg);
+	background-color: yellow;
+}
+.line-5{
+	transform: rotateY(144deg);
+	background-color: green;
+}
+.ball::after{
+	content: "";
+	width: 2px;
+	background-color: blue;
+	width: 500px;
+	display: block;
+	border: 2px;
+	/*background-color: aquamarine;*/
+
+
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+	<style>
+		ol {
+			width: 100px;
+			height: 80px;
+			margin-bottom: 20px;
+			background-color: #000;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<ol id='0'>A</ol>
+		<ol id='1'>B</ol>
+		<ol id='2'>C</ol>
+		<ol id='3'>D</ol>
+		<ol id='4'>E</ol>
+		<ol id='5'>F</ol>
+		<ol id='6'>G</ol>
+	</ul>
+	<script>
+		var ul = document.getElementsByTagName('ul')[0];
+		ul.addEventListener('click', function (ev) {
+			var target = ev.target;
+			if(target.nodeName === "OL") {
+				console.log(target.id);
+			}
+		}, false);
+	</script>
+</body>
+</html>

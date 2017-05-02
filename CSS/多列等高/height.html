@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS多列等高</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			color: #f00;
+		}
+		.container {
+			margin: 0 auto;
+			width: 600px;
+			border: 3px solid #00c;
+			overflow: hidden;
+		}
+		.left {
+			float: left;
+			width: 150px;
+			background-color: #b0b0b0;
+			padding-bottom: 2000px;
+			margin-bottom: -2000px;
+		}
+		.right {
+			float: left;
+			width: 450px;
+			background-color: #6cc;
+			padding-bottom: 2000px;
+			margin-bottom: -2000px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="left">我是left</div>
+		<div class="right">我是right<br><br><br>现在我的高度比left高</div>
+	</div>
+</body>
+</html>

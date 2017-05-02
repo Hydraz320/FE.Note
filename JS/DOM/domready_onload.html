@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img id="avatar" src="https://hydraz320.github.io/static/img/avatar.png">
+	<script>
+		var img = document.getElementById('avatar');
+		img.src = "https://hydraz320.github.io/static/img/avatar.png";
+		img.addEventListener("load", function () {
+			console.log("img.onload");
+		}, false);
+		// 注意这个事件得按DOM2来写
+		document.addEventListener("DOMContentLoaded", function() {
+			console.log("DOMContentLoaded");
+		}, false);
+
+		window.addEventListener("load", function() {
+			console.log("window.onload");
+		}, false);
+
+	</script>
+</body>
+</html>

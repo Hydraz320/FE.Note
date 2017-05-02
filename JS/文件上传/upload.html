@@ -1,0 +1,87 @@
+<!DOCTYPE html>  
+<html>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<head>  
+    <title>Html5 Ajax 上传文件</title>  
+    <script type="text/javascript">  
+  
+        function UploadFile() {  
+            var fileObj = document.getElementById("myfile").files[0]; // js 获取文件对象  
+            var FileController = "upload.php";                    // 接收上传文件的后台地址   
+  
+            // FormData 对象  
+            var form = new FormData();  
+            form.append("uploadtype", "html5");                        // 可以增加表单数据  
+            form.append("myfile", fileObj);                           // 文件对象  
+  
+            // XMLHttpRequest 对象  
+            var xhr = new XMLHttpRequest();  
+            xhr.open("post", FileController, true);  
+            xhr.onload = function () {  
+                var result = eval('(' + xhr.responseText + ')');  
+                if (result.code == 0) {  
+                    document.getElementById('info').innerHTML = "上传完成!开始处理数据。。。";  
+                    processData(result.data);  
+                }  
+                else {  
+                    alert(result.msg);  
+                }  
+            };  
+            xhr.upload.addEventListener("progress", progressFunction, false);  
+            xhr.send(form);  
+        }  
+          
+        function progressFunction(evt) {  
+            var progressBar = document.getElementById("progressBar");  
+            var percentageDiv = document.getElementById("percentage");  
+            if (evt.lengthComputable) {  
+                progressBar.max = evt.total;  
+                progressBar.value = evt.loaded;  
+                percentageDiv.innerHTML = Math.round(evt.loaded / evt.total * 100) + "%";  
+            }  
+        }  
+          
+        var nid = null;  
+        var processhandle = null;  
+        function processData(resultnid) {  
+            if (!resultnid) {  
+                return;  
+            }  
+            nid = resultnid;  
+            processhandle = setInterval(getProgress, 1000);  
+        }  
+        function getProgress() {  
+            var xhr = new XMLHttpRequest();  
+            xhr.open('get', 'getprogress.php?nid=' + nid, true);  
+            xhr.onload = function () {  
+                var result = eval('(' + xhr.responseText + ')');  
+                //更新进度  
+                var evt = {'lengthComputable': true, 'total': 100, 'loaded': result.progress};  
+                progressFunction(evt);  
+                //处理错误  
+                if (result.code > 0) {  
+                    document.getElementById('info').innerHTML = result.msg;  
+                    clearInterval(processhandle);  
+                }  
+                //处理完成  
+                else if (result.progress == 100) {  
+                    document.getElementById('info').innerHTML = "处理完成：" + result.result.msg;  
+                    clearInterval(processhandle);  
+                }  
+            };  
+            xhr.send();  
+        }  
+    </script>  
+</head>  
+  
+<body>  
+    <span id="info">上传进度</span><br />  
+    <progress id="progressBar" value="0" max="100"></progress>  
+    <span id="percentage"></span>  
+    <br /><br />  
+      
+    <input type="file" id="myfile" name="myfile" />  
+    <input type="button" onclick="UploadFile()" value="上传" />  
+</body>  
+  
+</html> 

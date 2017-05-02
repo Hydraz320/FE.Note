@@ -1,0 +1,32 @@
+html, body {
+	height: 100%;
+}
+.container {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	/*height: 100%;*/
+	width: 260px;
+	box-sizing: border-box;
+	border: 2px black solid;
+}
+
+.row {
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+
+	box-sizing: border-box;
+	border: 2px red solid;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 50%;
+
+	box-sizing: border-box;
+	border: 2px #666 solid;
+	text-align: center;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动居中</title>
+	<style>
+		#container {
+			width: 960px;
+			height: 200px;
+			background-color: red;
+		}
+		#box {
+			float: left;
+			position: relative;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="box"></div>
+	</div>
+</body>
+</html>

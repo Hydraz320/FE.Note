@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>监听storage事件的标签页</title>
+</head>
+<body>
+	<h1>先在event页面里点击button触发storage事件，然后观察当前页面console里监听到的事件</h1>
+	<script>
+		window.addEventListener("storage", function(e){ 
+			console.log(e);  
+			document.write("oldValue: "+ e.oldValue + " newValue:" + e.newValue)  
+		}, false);  
+	</script>
+</body>
+</html>

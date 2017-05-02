@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>url</title>
+</head>
+<body>
+	
+
+	<script>
+		var getQueryObject = function (url) {
+			url = typeof url === "string" ? url:window.location.href;
+			var search = url.slice(url.indexOf("?") + 1);
+			var obj = {};
+			var reg = /([^?=&]+)=([^?=&]*)/g;
+			search.replace(reg, function (rs, $1, $2) {
+				var key = decodeURIComponent($1);
+				var val = decodeURIComponent($2);
+				obj[key] = val;// val可能没有
+				return rs;
+			});
+			return obj;
+		}
+		var url = "http://www.google.com.hk/search?biw=1394&bih=&q=2d+slam+%E5%92%8C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&oq=2d+slam+%E5%92%8C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&gs_l=serp.3...4699961.4706047.0.4706151.0.0.0.0.0.0.0.0..0.0....0...1c.1j4.64.serp..0.0.0.yWCO6AYIAdE";
+		console.log(getQueryObject(url));
+	</script>
+</body>
+</html>

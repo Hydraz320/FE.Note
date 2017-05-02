@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试靠bottom、right拉伸的方法</title>
+	<style>
+		html, 
+		body {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			/* 不给这俩设置height: 100%;是显示不出来的 */
+			height: 100%;
+		}
+		.out {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			background-color: red;
+		}
+		.in1 {
+			width: 100%;
+			height: 200px;
+			background-color: black;
+		}
+		.in2 {
+			width: 100%;
+			flex: 1;
+			background-color: purple;
+		}
+	</style>
+</head>
+<body>
+	<div class="out">
+		<div class="in1"></div>
+		<div class="in2"></div>
+	</div>
+</body>
+</html>

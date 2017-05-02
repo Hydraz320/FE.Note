@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动端事件</title>
+	<style>
+	body {
+		display: flex;
+		justify-content: space-around;
+	}
+	#first, #second, #third {
+		width: 250px;
+		height: 100px;
+		color: white;
+	}
+	#first {
+		background-color: black;
+	}
+	#second {
+		background-color: red;
+	}
+	#third {
+		background-color: blue;
+	}
+	</style>
+</head>
+<body>
+	<div id="first" class="first">click</div>
+	<div id="second" class="second">swipe</div>
+	<div id="third" class="third">touch</div>
+	<script>
+		var first = document.getElementById('first');
+		var second = document.getElementById('second');
+		var third = document.getElementById('third');
+		first.addEventListener('click', function () {
+			console.log('click')
+		}, false);
+		// 这玩意是jQuery、zepto里面的 因为click会有200~300ms延迟
+		// 至于为啥有这么个延迟 是因为苹果工程师在做iPhone的时候
+		// 为了针对浏览大网站时可能有的双击放大操作 约定了这么个延迟等待
+		// 为了能判断是否连续点了两下……
+		second.addEventListener('swipeLeft', function () {
+			console.log('swipe')
+		}, false);
+		second.addEventListener('doubleTap', function () {
+			console.log('doubleTap')
+		}, false);
+
+		// 按下有一次
+		third.addEventListener('touchstart', function (e) {
+			// console.log('touchstart')
+		}, false);
+		// 滑动过程中一直有
+		third.addEventListener('touchmove', function (e) {
+			// console.log('touchmove')
+			console.log(e)
+			// console.log(e.targetTouches[0].pageX)
+		}, false);
+		// 松手有一次
+		third.addEventListener('touchend', function (e) {
+			// console.log('touchend')
+		}, false);
+		third.addEventListener('touchcancel', function () {
+			console.log('touchcancel')
+		}, false);
+	</script>
+</body>
+</html>
